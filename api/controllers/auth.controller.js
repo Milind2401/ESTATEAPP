@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import prisma from "../lib/prisma.js";
+import dotenv from 'dotenv';
 export const register= async(req,res)=>{
     try{
         const {username,email,password}=req.body;

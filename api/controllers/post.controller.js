@@ -1,5 +1,6 @@
 import prisma from "../lib/prisma.js";
 import jwt from "jsonwebtoken"
+import dotenv from 'dotenv';
 export const getPosts=async (req,res)=>{
     const query= req.query;
     console.log(query)
