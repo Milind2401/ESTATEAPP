@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL,
   },
 });
 
@@ -20,7 +20,6 @@ const removeUser = (socketId) => {
 };
 
 const getUser = (userId) => {
-  console.log(onlineUser);
   return onlineUser.find((user) => user.userId === userId);
 };
 
@@ -39,4 +38,4 @@ io.on("connection", (socket) => {
   });
 });
 
-io.listen("4000");
+io.listen(process.env.PORT);
