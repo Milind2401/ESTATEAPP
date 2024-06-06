@@ -5,6 +5,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid black;
 
   a {
     transition: all 0.4s ease;
@@ -24,25 +26,20 @@ nav {
     align-items: center;
     gap: 50px;
 
+    a {
+      font-weight: bolder;
+    }
+    a:hover {
+      color: #ff9c03;
+    }
+    img {
+      width: 170px;
+    }
     .logo {
-      font-weight: bold;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display: inline;
 
-      img {
-        width: 28px;
-      }
-
-      span {
-        @include md {
-          display: none;
-        }
-
-        @include sm {
-          display: initial;
-        }
+      @include sm {
+        display: inline; // Ensure the logo is visible in the small screen as well
       }
     }
   }
@@ -51,7 +48,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #fcf5f3;
     height: 100%;
 
     @include md {
@@ -63,33 +59,38 @@ nav {
       margin: 20px;
     }
 
-    .user{
+    .user {
       display: flex;
       align-items: center;
       font-weight: bold;
 
-      img{
+      img {
         width: 40px;
         height: 40px;
         border-radius: 50%;
         object-fit: cover;
-        margin-right: 20px;
+        margin-right: 5px;
+      }
+      .useName{
+        @include md{display: none;}
       }
 
-      span{
-        @include sm{
+      span {
+        @include sm {
           display: none;
         }
       }
 
-      .profile{
+      .profile {
         padding: 12px 24px;
-        background-color: #fece51;
+        background-color: #285767;
         cursor: pointer;
+        color: white;
         border: none;
         position: relative;
-        
-        .notification{
+        border-radius: 10px;
+
+        .notification {
           position: absolute;
           top: -8px;
           right: -8px;
@@ -102,7 +103,6 @@ nav {
           align-items: center;
           justify-content: center;
         }
-
       }
     }
 
@@ -126,7 +126,7 @@ nav {
     }
 
     .menu {
-      position: absolute;
+      position: fixed;
       top: 0;
       right: -50%;
       background-color: black;

@@ -26,7 +26,6 @@ function Login() {
     const res=await apiRequest.post("/auth/login",{
       username,password
     });
-    
     updateUser(res.data);
    navigate("/");
 

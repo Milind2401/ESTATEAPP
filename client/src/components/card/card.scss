@@ -3,13 +3,20 @@
 .card {
   display: flex;
   gap: 20px;
+  padding: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
+  @include sm {
+    padding: 10px;
+    width: 100%;
+  }
   .imageContainer {
     flex: 2;
     height: 200px;
 
     @include md {
       display: none;
+      padding: 10px;
     }
 
     img {
@@ -56,7 +63,7 @@
       font-weight: 300;
       padding: 5px;
       border-radius: 5px;
-      background-color: rgba(254, 205, 81, 0.438);
+      background-color: #ffdaa2;
       width: max-content;
     }
 
@@ -96,6 +103,9 @@
           &:hover {
             background-color: lightgray;
           }
+        }
+        @include sm{
+          display: none;
         }
       }
     }

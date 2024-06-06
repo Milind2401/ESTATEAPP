@@ -1,9 +1,18 @@
 @import "../../responsive.scss";
 
-.homePage {
+.heroSection {
+  margin-top: 70px;
   display: flex;
   height: 100%;
-
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 60px;
+  padding-right: 60px;
+  min-height: 50vh;
+   
+  @include sm{
+    padding:0px;
+  }
   .textContainer {
     flex: 3;
 
@@ -12,7 +21,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 50px;
+      gap: 10px;
       height: 100%;
 
       @include lg{
@@ -26,18 +35,20 @@
       @include sm{
         justify-content: flex-start;
       }
-
       .title {
-        font-size: 64px;
+        font-size: 55px;
 
         @include lg {
           font-size: 48px;
         }
       }
-
+      .searchBar{
+        margin-top: 30px;
+      }
       .boxes {
         display: flex;
         justify-content: space-between;
+        margin-top: 40px;
 
         @include sm {
           display: none;
@@ -61,7 +72,6 @@
 
   .imgContainer {
     flex: 2;
-    background-color: #fcf5f3;
     position: relative;
     display: flex;
     align-items: center;
@@ -80,4 +90,9 @@
       }
     }
   }
+}
+
+
+.serviceSection{
+  padding-top: 2%;
 }

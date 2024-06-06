@@ -38,7 +38,7 @@ function SearchBar() {
         <input
           type="number"
           name="minPrice"
-          min={0}
+          min={1}
           max={10000000}
           placeholder="Min Price"
           onChange={handleChange}
@@ -46,7 +46,7 @@ function SearchBar() {
         <input
           type="number"
           name="maxPrice"
-          min={0}
+          min={1}
           max={10000000}
           placeholder="Max Price"
           onChange={handleChange}

@@ -1,7 +1,7 @@
 import "./singlePage.scss";
 import Slider from "../../components/slider/Slider";
 import Map from "../../components/map/Map";
-import { redirect, useLoaderData } from "react-router-dom";
+import { redirect, useLoaderData, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { useContext, useState } from "react";
 import {AuthContext} from '../../context/AuthContext'
@@ -11,6 +11,23 @@ function SinglePage() {
   const post=useLoaderData();
   const [saved,setSaved]=useState(post.isSaved);
   const {currentUser}=useContext(AuthContext);
+  const navigate=useNavigate();
+  const handleSendMessage=async()=>{
+      try{
+        const status = await apiRequest.put("/chats/isExist/"+currentUser.id,{
+          receiver:post.userId,
+        });
+        console.log(status.status);
+        if(status.status===200)navigate("/profile");
+        if(status.status===201){
+          apiRequest.post("/chats",{receiverId:post.userId})
+          navigate("/profile");
+        }
+      }
+      catch(err){
+        console.log(err);
+      }
+  }
 
   const handleSave= async ()=>{
     setSaved((prev)=>!prev);
@@ -39,7 +56,7 @@ function SinglePage() {
                   <img src="/pin.png" alt="" />
                   <span>{post.address}</span>
                 </div>
-                <div className="price">$ {post.price}</div>
+                <div className="price">₹ {post.price}/-</div>
               </div>
               <div className="user">
                 <img src={post.user.avatar} alt="" />
@@ -57,7 +74,7 @@ function SinglePage() {
           <p className="title">General</p>
           <div className="listVertical">
             <div className="feature">
-              <img src="/utility.png" alt="" />
+              <img src="/settings.png" alt="" />
               <div className="featureText">
                 <span>Utilities</span>
                 {
@@ -68,7 +85,7 @@ function SinglePage() {
               </div>
             </div>
             <div className="feature">
-              <img src="/pet.png" alt="" />
+              <img src="/pawprint.png" alt="" />
               <div className="featureText">
                 <span>Pet Policy</span>
                 {
@@ -79,7 +96,7 @@ function SinglePage() {
               </div>
             </div>
             <div className="feature">
-              <img src="/fee.png" alt="" />
+              <img src="/income.png" alt="" />
               <div className="featureText">
                 <span>Income Policy</span>
                 <p>{post.postDetail.income}</p>
@@ -111,14 +128,14 @@ function SinglePage() {
               </div>
             </div>
             <div className="feature">
-              <img src="/pet.png" alt="" />
+              <img src="/bus.png" alt="" />
               <div className="featureText">
                 <span>Bus Stop</span>
                 <p>{post.postDetail.bus}m away</p>
               </div>
             </div>
             <div className="feature">
-              <img src="/fee.png" alt="" />
+              <img src="/dinner.png" alt="" />
               <div className="featureText">
                 <span>Restaurant</span>
                 <p>{post.postDetail.restaurant}m away</p>
@@ -130,7 +147,7 @@ function SinglePage() {
             <Map items={[post]} />
           </div>
           <div className="buttons">
-            <button>
+            <button onClick={handleSendMessage}>
               <img src="/chat.png" alt="" />
               Send a Message
             </button>

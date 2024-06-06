@@ -1,7 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import prisma from "../lib/prisma.js";
-import dotenv from 'dotenv';
 export const register= async(req,res)=>{
     try{
         const {username,email,password}=req.body;
@@ -45,7 +44,6 @@ export const login= async(req,res)=>{
         id:user.id,
         isAdmin:false,
     },process.env.JWT_SECRET_KEY,{expiresIn:age});
-
     const {password:userPassword,...userInfo} =user;
 
         res.cookie("token",token,{

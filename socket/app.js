@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: process.env.CLIENT_URL,
+    origin: "http://localhost:5173",
   },
 });
 
@@ -38,4 +38,4 @@ io.on("connection", (socket) => {
   });
 });
 
-io.listen(process.env.PORT);
+io.listen(4000);

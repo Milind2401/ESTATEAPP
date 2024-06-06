@@ -9,15 +9,15 @@ import { Suspense } from "react";
 function ListPage() {
   const data=useLoaderData()
 
-  return <div className="listPage">
+  return <div className="searchResult">
     <div className="listContainer">
       <div className="wrapper">
         <Filter/>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<img className="loading" src="./loading2.gif"></img>}>
         <Await
           resolve={data.postResponse}
           errorElement={
-            <p>Error loading posts!</p>
+            <img className="loading" src="./error2.gif"></img>
           }
         >
           {(postResponse) => postResponse.data.map(post=>(
@@ -28,7 +28,7 @@ function ListPage() {
       </div>
     </div>
     <div className="mapContainer">
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<img src="./loading.gif"></img>}>
         <Await
           resolve={data.postResponse}
           errorElement={
@@ -40,7 +40,7 @@ function ListPage() {
         </Await>
         </Suspense>
     </div>
-  </div>;
+  </div>
 }
 
 export default ListPage;
