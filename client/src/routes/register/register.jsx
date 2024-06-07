@@ -30,6 +30,9 @@ function Register() {
   };
   return (
     <div className="register">
+      <div className="imgContainer">
+        <img src="/signupbg.png" alt="" />
+      </div>
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
           <h1>Create an Account</h1>
@@ -41,9 +44,7 @@ function Register() {
           <Link to="/login">Do you have an account?</Link>
         </form>
       </div>
-      <div className="imgContainer">
-        <img src="/bg.png" alt="" />
-      </div>
+      
     </div>
   );
 }

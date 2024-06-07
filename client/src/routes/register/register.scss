@@ -1,3 +1,4 @@
+@import "../../responsive.scss";
 .register {
   height: 100%;
   display: flex;
@@ -21,10 +22,11 @@
       }
 
       button {
+        transition: all 0.4s ease;
         padding: 20px;
         border-radius: 5px;
         border: none;
-        background-color: teal;
+        background-color: #285767;
         color: white;
         font-weight: bold;
         cursor: pointer;
@@ -32,6 +34,10 @@
         &:disabled {
           background-color: #bed9d8;
           cursor: not-allowed;
+        }
+        &:hover {
+          scale: 1.05;
+          color: #ff9c03;
         }
       }
 
@@ -53,7 +59,11 @@
     background-color: #fcf5f3;
     display: flex;
     align-items: center;
+    overflow: hidden;
     justify-content: center;
+    @include sm{
+      display: none;
+    }
     img {
       width: 100%;
     }

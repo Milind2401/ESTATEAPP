@@ -1,10 +1,15 @@
+@import "../../responsive.scss";
 .newPostPage {
   height: 100%;
   display: flex;
-
+  @include sm {
+    flex-direction: column;
+    overflow: scroll;
+  }
   .formContainer {
     flex: 3;
-    overflow: scroll;
+    overflow-y: scroll;
+    padding: 20px;
 
     .wrapper {
       margin: 30px 50px 100px 0px;
@@ -21,8 +26,7 @@
           flex-direction: column;
           gap: 5px;
 
-          label {
-          }
+          
 
           input {
             padding: 20px;
@@ -36,21 +40,23 @@
 
           &.description {
             width: 100%;
-            height: 320px;
+            height: 100%;
 
             .quill > .ql-container > .ql-editor{
-              height: 200px;
+              height: 100%;
               font-size: 16px;
             }
           }
         }
         .sendButton {
           width: 30%;
+          padding: 10px;
           border-radius: 5px;
           border: none;
-          background-color: teal;
+          background-color: #285767;
           color: white;
-          font-weight: bold;
+          font-size: large;
+          font-weight: bolder;
           cursor: pointer;
         }
       }
@@ -59,18 +65,22 @@
 
   .sideContainer {
     flex: 2;
-    background-color: #fcf5f3;
+    background-color: #b5deed;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 20px;
+    padding: 20px;
+    overflow-y: scroll;
     align-items: center;
     justify-content: center;
 
     img {
-      width: 50%;
-      height: 180px;
+      width: 30%;
       object-fit: cover;
       border-radius: 5px;
+    }
+    .upload{
+      background-color: #285767;
     }
   }
 }

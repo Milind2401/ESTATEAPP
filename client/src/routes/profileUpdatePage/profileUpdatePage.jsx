@@ -63,6 +63,23 @@ function ProfileUpdatePage() {
           multiple:false,
           maxImageFileSize:2000000,
           folder:"avatars",
+          styles: {
+            palette: {
+              window: "#285767",
+              windowBorder: "#ff9c03",
+              tabIcon: "#ff9c03",
+              menuIcons: "#FFFFFF",
+              textDark: "#000000",
+              textLight: "#FFFFFF",
+              link: "#0078FF",
+              action: "#285767",
+              inactiveTabIcon: "#FFFFFF",
+              error: "#F44235",
+              inProgress: "#0078FF",
+              complete: "#20B832",
+              sourceBg: "#E4EBF1"
+            },
+          }
         }}
         setState={setAvatar}
         />
